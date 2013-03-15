@@ -29,7 +29,6 @@
  * bears little resemblance for its inspiration. Assume
  * any errors are mine.
  */
- */
 #include "Arduino.h"
 #include <Wire.h>
 #include <avr/pgmspce.h>
