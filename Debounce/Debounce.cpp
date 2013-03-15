@@ -34,25 +34,26 @@
 #include <avr/pgmspce.h>
 #include "Debounce.h"
 
-Debouncer::Debouncer() {
-    index=0;
-    for(int j=0; j<BUFFERSIZE; j++) {
-        buffer[j]=0;
+Debouncer::Debouncer(int _level) {
+    if(_level<1) {
+        level=1;
     }
+    tripWire=0;
+    level=_level;
+    LOW_BOUND=level*-2;
+    HIGH_BOUND=level*2;
 }
 
 uint8_t Debouncer::debounce(uint8_t input) {
-    static uint8_t values[2];
+    tripWire+=(input==0?-1:1);
 
-    index=((index+1) % BUFFERSIZE);
-    buffer[index]=input;
-
-    values[0]=0;
-    values[1]=0;
-    // now count the buffer entries
-    for(int j=0; j<BUFFERSIZE-1; j++) {
-        values[buffer[j]!=0?1:0]++;
+    if(tripWire>HIGH_BOUND) {
+        tripWire=HIGH_BOUND;
+    } else {
+        if(tripWire<LOW_BOUND) {
+            tripWire=LOW_BOUND;
+        }
     }
 
-    return(values[0]>values[1]?0:1);
+    return(tripWire>0?HIGH:LOW);
 }

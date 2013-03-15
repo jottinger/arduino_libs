@@ -34,15 +34,15 @@
 
 #include <Wire.h>
 
-#define BUFFERSIZE 13
-
 class Debouncer {
 private:
-  uint8_t buffer[BUFFERSIZE];
-  int index;
+  int tripWire;
+  int level;
+  int LOW_BOUND=-14;
+  int HIGH_BOUND=14;
 protected:
 public:
-  Debouncer();
+  Debouncer(int _level=7);
    
   uint8_t debounce(uint8_t input);
 };
