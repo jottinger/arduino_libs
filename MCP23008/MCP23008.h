@@ -19,6 +19,12 @@
  * under the License.
  *
  * Written by Joseph B. Ottinger, http://enigmastation.com
+ *
+  * This code owes a great deal to the Adafruit_MCP23008
+ * library, written by Limor Fried/ladyada. Any similarities
+ * are very intentional, and any errors are mine.
+ *
+ * See https://github.com/adafruit/Adafruit-MCP23008-library
  */
 
 #ifndef __MCP23008_H__
