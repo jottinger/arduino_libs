@@ -45,7 +45,7 @@ Debouncer::Debouncer(int _level) {
 }
 
 uint8_t Debouncer::debounce(uint8_t input) {
-    tripWire+=(input==0?-1:1);
+    tripWire+=(input==LOW?-1:1);
 
     if(tripWire>HIGH_BOUND) {
         tripWire=HIGH_BOUND;
