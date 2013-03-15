@@ -19,6 +19,16 @@
  * under the License.
  *
  * Written by Joseph B. Ottinger, http://enigmastation.com
+ *
+ * This is a (pretty deep) modification of code found on 
+ * the Arduino Playground, for digitalSmooth() -
+ *
+ *   http://playground.arduino.cc//Main/DigitalSmooth
+ *
+ * It's been modified for my preferences and needs, and 
+ * bears little resemblance for its inspiration. Assume
+ * any errors are mine.
+ */
  */
 #include "Arduino.h"
 #include <Wire.h>
